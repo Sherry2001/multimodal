@@ -65,12 +65,8 @@ class MultimodalEmbedding:
 		return learned_embedding
 
 # save dictionary of predicted embeddings
-def save_prediction(word_list, list_type, pred_embedding, args):
+def save_prediction(word_list, list_type, pred_embedding, path):
 	word_dict = dict(zip(word_list, pred_embedding))
-	if args.s:
-		path = args.s
-	else:
-		path = args.l
 	with open(path+"_"+list_type+".p", 'wb') as fp:
 		try:
 			pickle.dump(word_dict, fp, protocol=pickle.HIGHEST_PROTOCOL)
@@ -153,6 +149,9 @@ def main():
 
 if __name__=='__main__':
 	main()
+
+
+
 
 
 
